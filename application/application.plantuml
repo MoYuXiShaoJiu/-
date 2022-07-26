@@ -1,0 +1,239 @@
+@startuml
+
+title __APPLICATION's Class Diagram__\n
+
+  namespace com.example.aircraftwar {
+    namespace JavaCode.edu.hitsz {
+      namespace application {
+        abstract class com.example.aircraftwar.JavaCode.edu.hitsz.application.Game {
+            + gameOverFlag : boolean
+            + thisH : Handler
+            ~ bossHpIncrease : double
+            ~ bossHpRatio : double
+            ~ bossScoreThreshold : double
+            ~ bossScoreThreshold_decrease : double
+            ~ enemyHpRatio : double
+            ~ enemyMaxNumber : int
+            ~ enemySpeedRatio : double
+            ~ heroBulletDamage : int
+            ~ mbLoop : boolean
+            - Props : List<BaseProp>
+            - backGroundTop : int
+            - bossHpin : double
+            - canvas : Canvas
+            - cycleDuration : int
+            - cycleTime : int
+            - enemyAircrafts : List<BaseEnemy>
+            - enemyBullets : List<BaseBullet>
+            - enemyHpIncrease : double
+            - enemySpeedIncrease : double
+            - heroBullets : List<BaseBullet>
+            - mPaint : Paint
+            - mSurfaceHolder : SurfaceHolder
+            - score : int
+            - score_0 : int
+            - score_1000 : int
+            - time : int
+            - time0 : int
+            - time1 : int
+            - timeInterval : int
+            + BossMaker()
+            + EliteMaker()
+            + Game()
+            + MobMaker()
+            + action()
+            + draw()
+            + gameParameterControl()
+            + run()
+            + setMH()
+            + surfaceChanged()
+            + surfaceCreated()
+            + surfaceDestroyed()
+            - aircraftsMoveAction()
+            - bulletsMoveAction()
+            - crashCheckAction()
+            - paintImageWithPositionRevised()
+            - paintScoreAndLife()
+            - postProcessAction()
+            - propsMoveAction()
+            - shootAction()
+            - timeCountAndNewCycleJudge()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.aircraftwar {
+    namespace JavaCode.edu.hitsz {
+      namespace application {
+        class com.example.aircraftwar.JavaCode.edu.hitsz.application.ImageManager {
+            {static} + BACKGROUND_IMAGE_easy : Bitmap
+            {static} + BACKGROUND_IMAGE_hard : Bitmap
+            {static} + BACKGROUND_IMAGE_normal : Bitmap
+            {static} + BOMB_PROP_IMAGE : Bitmap
+            {static} + BOSS_ENEMY_IMAGE : Bitmap
+            {static} + ELITE_ENEMY_IMAGE : Bitmap
+            {static} + ENEMY_BULLET_IMAGE : Bitmap
+            {static} + FIRE_PROP_IMAGE : Bitmap
+            {static} + HERO_BULLET_IMAGE : Bitmap
+            {static} + HERO_IMAGE : Bitmap
+            {static} + HP_PROP_IMAGE : Bitmap
+            {static} + MOB_ENEMY_IMAGE : Bitmap
+            {static} - CLASSNAME_IMAGE_MAP : Map<String, Bitmap>
+            {static} + get()
+            {static} + get()
+            {static} + initImage()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.aircraftwar {
+    namespace JavaCode.edu.hitsz {
+      namespace application {
+        class com.example.aircraftwar.JavaCode.edu.hitsz.application.MusicService {
+            {static} - TAG : String
+            - context1 : Context
+            - mSoundPool : SoundPool
+            - player_bgm : MediaPlayer
+            - player_bgm_boss : MediaPlayer
+            - soundID : HashMap<Integer, Integer>
+            + MusicService()
+            + onBind()
+            + onCreate()
+            + onDestroy()
+            + onStartCommand()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.aircraftwar {
+    namespace JavaCode.edu.hitsz {
+      namespace application {
+        class com.example.aircraftwar.JavaCode.edu.hitsz.application.MusicService.MyBinder {
+            + playBGM()
+            + playMusic()
+            + stopMusic()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.aircraftwar {
+    namespace JavaCode.edu.hitsz {
+      namespace application {
+        class com.example.aircraftwar.JavaCode.edu.hitsz.application.easyGame {
+            + gameOverFlag : boolean
+            ~ mHandler : Handler
+            - Props : List<BaseProp>
+            - backGroundTop : int
+            - cycleDuration : int
+            - cycleTime : int
+            - enemyAircrafts : List<BaseEnemy>
+            - enemyBullets : List<BaseBullet>
+            - enemyMaxNumber : int
+            - executorService : ScheduledExecutorService
+            - heroBullets : List<BaseBullet>
+            - score : int
+            - score_0 : int
+            - score_1000 : int
+            - time : int
+            - time0 : int
+            - timeInterval : int
+            + BossMaker()
+            + easyGame()
+            + gameParameterControl()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.aircraftwar {
+    namespace JavaCode.edu.hitsz {
+      namespace application {
+        class com.example.aircraftwar.JavaCode.edu.hitsz.application.hardGame {
+            + gameOverFlag : boolean
+            - Props : List<BaseProp>
+            - backGroundTop : int
+            - cycleDuration : int
+            - cycleTime : int
+            - enemyAircrafts : List<BaseEnemy>
+            - enemyBullets : List<BaseBullet>
+            - enemyMaxNumber : int
+            - executorService : ScheduledExecutorService
+            - heroBullets : List<BaseBullet>
+            - score : int
+            - score_0 : int
+            - score_1000 : int
+            - time : int
+            - time0 : int
+            - timeInterval : int
+            + gameParameterControl()
+            + hardGame()
+        }
+      }
+    }
+  }
+  
+
+  namespace com.example.aircraftwar {
+    namespace JavaCode.edu.hitsz {
+      namespace application {
+        class com.example.aircraftwar.JavaCode.edu.hitsz.application.normalGame {
+            + gameOverFlag : boolean
+            - Props : List<BaseProp>
+            - backGroundTop : int
+            - cycleDuration : int
+            - cycleTime : int
+            - enemyAircrafts : List<BaseEnemy>
+            - enemyBullets : List<BaseBullet>
+            - enemyMaxNumber : int
+            - executorService : ScheduledExecutorService
+            - heroBullets : List<BaseBullet>
+            - score : int
+            - score_0 : int
+            - score_1000 : int
+            - time : int
+            - time0 : int
+            - timeInterval : int
+            + gameParameterControl()
+            + normalGame()
+        }
+      }
+    }
+  }
+  
+
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.Game .up.|> android.view.SurfaceHolder.Callback
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.Game .up.|> java.lang.Runnable
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.Game -up-|> android.view.SurfaceView
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.Game o-- com.example.aircraftwar.JavaCode.edu.hitsz.strategy.BulletStrategyContext : context
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.Game o-- com.example.aircraftwar.JavaCode.edu.hitsz.aircraft.HeroAircraft : heroAircraft
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.MusicService -up-|> android.app.Service
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.MusicService +-down- com.example.aircraftwar.JavaCode.edu.hitsz.application.MusicService.MyBinder
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.MusicService.MyBinder -up-|> android.os.Binder
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.easyGame -up-|> com.example.aircraftwar.JavaCode.edu.hitsz.application.Game
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.easyGame o-- com.example.aircraftwar.JavaCode.edu.hitsz.strategy.BulletStrategyContext : context
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.easyGame o-- com.example.aircraftwar.JavaCode.edu.hitsz.aircraft.HeroAircraft : heroAircraft
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.hardGame -up-|> com.example.aircraftwar.JavaCode.edu.hitsz.application.Game
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.hardGame o-- com.example.aircraftwar.JavaCode.edu.hitsz.strategy.BulletStrategyContext : context
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.hardGame o-- com.example.aircraftwar.JavaCode.edu.hitsz.aircraft.HeroAircraft : heroAircraft
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.normalGame -up-|> com.example.aircraftwar.JavaCode.edu.hitsz.application.Game
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.normalGame o-- com.example.aircraftwar.JavaCode.edu.hitsz.strategy.BulletStrategyContext : context
+  com.example.aircraftwar.JavaCode.edu.hitsz.application.normalGame o-- com.example.aircraftwar.JavaCode.edu.hitsz.aircraft.HeroAircraft : heroAircraft
+
+
+right footer
+
+
+PlantUML diagram generated by SketchIt! (https://bitbucket.org/pmesmeur/sketch.it)
+For more information about this tool, please contact philippe.mesmeur@gmail.com
+endfooter
+
+@enduml
